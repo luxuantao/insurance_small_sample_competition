@@ -1,0 +1,6 @@
+transformers==4.16.2
+transformers[onnx]
+datasets
+wandb
+sentencepiece
+rouge

@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES=0 python3 pretrain.py \
+    --model_path="google/mt5-large" \
+    --model_name="MT5" \
+    --dataset="opensource" \
+    --lr=2e-5 \
+    --batch_size=8 \
+    --max_source_length=512 \
+    --max_target_length=200 \
+    --epoch=50 \
+    --data_dir="./data/" \
+    --split_dataset \
+    --run_name="mt5-large-pretrain" \

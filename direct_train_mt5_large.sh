@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=0 python3 direct_train.py \
+    --model_path="./results/xxx/checkpoint-50052" \
+    --model_name="MT5" \
+    --dataset="instruction" \
+    --lr=2e-5 \
+    --batch_size=8 \
+    --max_source_length=512 \
+    --max_target_length=200 \
+    --epoch=31 \
+    --data_dir="./data/" \
+    --run_name="mt5-large-direct-train" \
