@@ -41,5 +41,3 @@
 7. `python onnx_main.py` 模型导出为onnx格式，并进行int8量化，并最终进行预测，注意第297行 `generate_onnx_representation(pretrained_version='./results/xxx/checkpoint-875', output_prefix='./results/onnx_origin_model/mt5-large')` ，其中的`pretrained_version` 参数需要换成第六步训练得到的模型的保存路径，如果完全复现的话，第六步执行结束后，该路径中会出现 `checkpoint-875` 的权重文件。预测过程可能会比较慢，约40分钟，因为我编写的代码中，是用CPU预测的而没有用到GPU，而且是一条条sample进行预测，没有使用batch的方式（这样是符合真实线上部署环境的），并且由于我对测试数据进行了样本增强，所以样本数目约为没增强前的四倍。其实我的模型推理速度是不慢的，因为经过了int8量化，而且用了onnx进行推理加速。如果别人的模型也只用CPU进行推理，肯定没有我的快。
 
 8. `python get_final_result.py` 对最终结果进行后处理，最终得到的预测结果文件为`answer.json` 
-
-为了方便复现，我也将最终用到的预测模型上传到了邮件的附件中，下载后将其放在`results` 路径下，该模型可以复现出线上B榜的最佳成绩
